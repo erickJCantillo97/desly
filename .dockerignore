@@ -1,0 +1,8 @@
+.git/ 
+node_modules/ 
+devops/
+Dockerfile
+Jenkinsfile_dev
+Jenkinsfile_pro
+Jenkinsfile_qa
+
