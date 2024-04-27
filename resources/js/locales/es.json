@@ -1,0 +1,16 @@
+{
+    "hello" : "Hola",
+    "crud": {
+        "add" : "Añadir"
+    },
+    "auth": {
+        "login": "Iniciar Sesión"
+    },
+    "labels" : {
+        "email": "Correo Electronico"
+    },
+    "language": {
+        "english": "Ingles",
+        "spanish": "Español"
+    }
+}

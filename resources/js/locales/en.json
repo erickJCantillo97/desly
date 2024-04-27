@@ -1,0 +1,13 @@
+{
+    "hello" : "Hello",
+    "auth": {
+        "login": "Login"
+    },
+    "labels" : {
+        "email": "Email"
+    },
+    "language": {
+        "english": "English",
+        "spanish": "Spanish"
+    }
+}
