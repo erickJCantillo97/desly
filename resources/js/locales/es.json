@@ -1,12 +1,12 @@
 {
-    "hello" : "Hola",
+    "hello": "Hola",
     "crud": {
-        "add" : "Añadir"
+        "add": "Añadir"
     },
     "auth": {
         "login": "Iniciar Sesión"
     },
-    "labels" : {
+    "labels": {
         "email": "Correo Electronico"
     },
     "language": {
@@ -15,11 +15,12 @@
     },
     "section": {
         "home": {
-            "title": "Bienvenido al sistema de administración de propiedades horizontales" 
+            "title": "Bienvenido al sistema de administración de propiedades horizontales"
         }
     },
-    "nav" : {
+    "nav": {
         "home": "Inicio",
         "request": "Peticiones"
-    }
+    },
+    "contact": "Contacto"
 }

@@ -1,6 +1,6 @@
 import './bootstrap';
 import '../css/app.css';
-
+// import './iconify/build-icons'
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
@@ -12,9 +12,12 @@ import vuetify from './plugins/vuetify'
 import toast from './plugins/toast'
 import "primeicons/primeicons.css";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
+import 'aos/dist/aos.css'
+import AOS from 'aos'
 
-
+AOS.init()
 const pinia = createPinia()
+
 
 
 pinia.use(piniaPluginPersistedstate)

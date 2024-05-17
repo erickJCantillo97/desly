@@ -1,20 +1,23 @@
 {
-    "hello" : "Hello",
+    "hello": "Hello",
     "auth": {
         "login": "Login"
     },
-    "labels" : {
+    "labels": {
         "email": "Email"
     },
     "language": {
         "english": "English",
         "spanish": "Spanish"
-    },"nav" : {
+    },
+    "nav": {
         "home": "Home",
         "request": "Request"
-    },"section": {
+    },
+    "section": {
         "home": {
-            "title": "Welcome to al sistema de administración de propiedades horizontales" 
+            "title": "Welcome to al sistema de administración de propiedades horizontales"
         }
-    }
+    },
+    "contact": "Contac"
 }
