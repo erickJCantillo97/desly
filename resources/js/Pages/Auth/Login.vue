@@ -9,9 +9,9 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { useCounter } from "@/stores/counter"
 import { storeToRefs } from 'pinia'
-const store  = useCounter();
+const store = useCounter();
 
-const {name, count, location} = storeToRefs(store);
+const { name, count, location } = storeToRefs(store);
 
 defineProps({
     canResetPassword: Boolean,
@@ -24,6 +24,13 @@ const form = useForm({
     remember: false,
 });
 
+
+const rules = {
+    required: value => !!value || 'Este campo es Requerido',
+}
+
+const isPasswordVisible = ref(false)
+
 const submit = () => {
     form.transform(data => ({
         ...data,
@@ -35,11 +42,68 @@ const submit = () => {
 </script>
 
 <template>
+
     <Head title="Log in" />
-    <div class="hidden">
-        {{ $i18n.locale = location }}
+    <div class="flex justify-center py-12">
+        <VCard class="auth-card pa-4 pt-7">
+            <VCardItem class="justify-center">
+                <template #prepend>
+                    <div class="d-flex">
+                        <!-- <div class="d-flex text-primary" v-html="logo" /> -->
+                        logo
+                    </div>
+                </template>
+                <VCardTitle class="text-2xl font-weight-bold">
+                    Desly
+                </VCardTitle>
+            </VCardItem>
+
+            <VCardText class="pt-2 text-center">
+                <h5 class="text-h5 mb-1">
+                    Binevenido de nuveo! 👋🏻
+                </h5>
+                <p class="mb-0">
+                    Por favor ingresa tus credenciales
+                </p>
+            </VCardText>
+
+            <VCardText>
+                <VForm @submit.prevent="submit">
+                    <VRow>
+                        <!-- email -->
+                        <VCol cols="12">
+                            <VTextField :rules="[rules.required]" v-model="form.email" autofocus
+                                placeholder="johndoe@email.com" label="Email" type="email" />
+                        </VCol>
+
+                        <!-- password -->
+                        <VCol cols="12">
+
+                            <v-text-field v-model="form.password" label="Password" class="!focus:ring-0"
+                                variant="underlined" :type="isPasswordVisible ? 'text' : 'password'"
+                                :append-inner-icon="!isPasswordVisible ? 'mdi-eye' : 'mdi-eye-off'"
+                                @click:append-inner="isPasswordVisible = !isPasswordVisible" />
+
+                            <!-- remember me checkbox -->
+                            <div class="flex justify-between items-center">
+                                <VCheckbox v-model="form.remember" label="Remember me" />
+                                <Link class="-mt-12 text-primary" to="javascript:void(0)">
+                                Olvide mi contraseña
+                                </Link>
+                            </div>
+
+                            <!-- login button -->
+                            <VBtn color="primary" block type="submit">
+                                Login
+                            </VBtn>
+                        </VCol>
+
+                    </VRow>
+                </VForm>
+            </VCardText>
+        </VCard>
     </div>
-    <AuthenticationCard>
+    <!-- <AuthenticationCard>
         <template #logo>
             <AuthenticationCardLogo />
         </template>
@@ -93,5 +157,5 @@ const submit = () => {
                 </PrimaryButton>
             </div>
         </form>
-    </AuthenticationCard>
+    </AuthenticationCard> -->
 </template>

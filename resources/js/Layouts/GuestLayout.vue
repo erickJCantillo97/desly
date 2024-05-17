@@ -8,7 +8,7 @@ import Footer from '@/Components/Sections/Footer.vue';
 </script>
 
 <template>
-  <v-app class="bg-grey-lighten-4">
+  <v-app class="bg-grey-lighten-4 main">
     <v-main>
       <v-parallax src="/src/img/bg/bg-home.jpg">
         <NavBar class=""></NavBar>

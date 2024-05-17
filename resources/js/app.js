@@ -14,6 +14,7 @@ import "primeicons/primeicons.css";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import 'aos/dist/aos.css'
 import AOS from 'aos'
+import VueSmoothScroll from 'vue3-smooth-scroll'
 
 AOS.init()
 const pinia = createPinia()
@@ -34,6 +35,7 @@ createInertiaApp({
             .use(pinia)
             .use(toast)
             .use(vuetify)
+            .use(VueSmoothScroll)
             .mount(el);
     },
     progress: {
