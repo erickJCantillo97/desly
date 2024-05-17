@@ -12,5 +12,14 @@
     "language": {
         "english": "Ingles",
         "spanish": "Español"
+    },
+    "section": {
+        "home": {
+            "title": "Bienvenido al sistema de administración de propiedades horizontales" 
+        }
+    },
+    "nav" : {
+        "home": "Inicio",
+        "request": "Peticiones"
     }
 }

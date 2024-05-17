@@ -6,7 +6,7 @@ export const i18n = createI18n({
     globalInjection: true,
     locale:  window.navigator.language.substring(0, 2) || 'es',
     fallbackLocale: 'es',
-    availableLocales : ['es', 'en'],
+    availableLocales : ['es', 'us'],
     messages: messages
 
 })
