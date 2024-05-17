@@ -7,12 +7,11 @@ import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy';
 import { i18n } from './plugins/i18n';
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
-import PrimeVue from 'primevue/config';
 import { createPinia } from 'pinia'
-import Button from "primevue/button"
-import "../css/aura-light-indigo/theme.css"
+import vuetify from './plugins/vuetify'
+import toast from './plugins/toast'
 import "primeicons/primeicons.css";
-
+import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 
 const pinia = createPinia()
@@ -20,7 +19,7 @@ const pinia = createPinia()
 
 pinia.use(piniaPluginPersistedstate)
 
-const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
+const appName = import.meta.env.VITE_APP_NAME || 'DESLY';
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
     resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),
@@ -29,9 +28,9 @@ createInertiaApp({
             .use(plugin)
             .use(ZiggyVue)
             .use(i18n)
-            .use(PrimeVue)
             .use(pinia)
-            .component('Button', Button)
+            .use(toast)
+            .use(vuetify)
             .mount(el);
     },
     progress: {

@@ -1,16 +1,36 @@
 <script setup>
 import { ref } from 'vue';
 import { Head, Link, router } from '@inertiajs/vue3';
+// import Dropdown from 'primevue/dropdown';
 import ApplicationMark from '@/Components/ApplicationMark.vue';
 import Banner from '@/Components/Banner.vue';
-import Dropdown from '@/Components/Dropdown.vue';
-import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
+import { useCounter } from "@/stores/counter"
+import { storeToRefs } from 'pinia'
+import { useI18n } from "vue-i18n";
+import DarkToggle from "@/Components/Settings/DarkToggle.vue"
+
+
+const { t } = useI18n()
+const store  = useCounter();
+const {name, count, location} = storeToRefs(store);
+const {increment,reverseName} = store;
+
 
 defineProps({
     title: String,
 });
+
+const selectedCountry = ref(location);
+const selectLocale = () => {
+    reverseName(selectedCountry.value)
+}
+const countries = ref([
+    
+    { name: t('language.spanish'), code: 'es' },
+    { name: t('language.english'), code: 'en' }
+]);
 
 const showingNavigationDropdown = ref(false);
 
@@ -55,6 +75,15 @@ const logout = () => {
                         </div>
 
                         <div class="hidden sm:flex sm:items-center sm:ms-6">
+                        <div>
+                        <Dropdown v-model="selectedCountry" @change="selectLocale" :options="countries" filter optionLabel="name" optionValue="code" placeholder="Select a Country" class="w-full md:w-14rem"  :pt="{
+            root: '!h-8 dark:bg-gray-500 dark:text-white',
+            input: '!py-0 !flex !items-center !text-sm !font-normal dark:text-white',
+            item: '!py-1 !px-3 !text-sm !font-normal',
+            filterInput: '!h-8'
+        }"
+/>
+                        </div>
                             <div class="ms-3 relative">
                                 <!-- Teams Dropdown -->
                                 <Dropdown v-if="$page.props.jetstream.hasTeamFeatures" align="right" width="60">

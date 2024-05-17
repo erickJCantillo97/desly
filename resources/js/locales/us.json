@@ -1,0 +1,20 @@
+{
+    "hello" : "Hello",
+    "auth": {
+        "login": "Login"
+    },
+    "labels" : {
+        "email": "Email"
+    },
+    "language": {
+        "english": "English",
+        "spanish": "Spanish"
+    },"nav" : {
+        "home": "Home",
+        "request": "Request"
+    },"section": {
+        "home": {
+            "title": "Welcome to al sistema de administración de propiedades horizontales" 
+        }
+    }
+}
